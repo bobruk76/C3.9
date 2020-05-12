@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <title>PVM С1.11</title>
+
+  </head>
+  <body>
+    <h1>
+      Countdown Clock
+    </h1>
+      <section class="grid-wrapper">
+        <div>
+          <label for="minutes">Minutes:</label>
+          <input type="number" id="minutes" name="minutes" min="0" max="59">
+        </div>
+        <div>
+          <label for="seconds">Seconds:</label>
+          <input type="number" id="seconds" name="seconds" min="0" max="59">
+        </div>
+        <div>
+          <button id="btn-min-up" class="btn">+</button>
+          <button id="btn-min-down" class="btn">-</button>
+        </div>
+        <div>
+          <button id="btn-sec-up" class="btn">+</button>
+          <button id="btn-sec-down" class="btn">-</button>
+        </div>
+        <button id="start-btn" class="action-btn">Start countdown</button>
+        <button id="stop-btn" class="action-btn">Stop countdown</button>
+       </section>
+      <main>
+        <p class="hide isDone">Countdown is done...</p>
+      </main>
+
+      <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="/static/src/script.js"></script>
+  </body>
+</html>
