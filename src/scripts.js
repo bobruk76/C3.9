@@ -1,26 +1,58 @@
+const $checkList = document.querySelectorAll('input[type=checkbox]')
+
 function checToLS(){
-  $checList = document.querySelector(input[type="checkbox"])
-  console.log(checList);
+  $checkList.forEach(element => {
+    localStorage.setItem(element.value,element.checked)
+  });
+}
+
+function clearLS(){
+  $checkList.forEach(element => {
+    localStorage.clear();
+    document.location.reload(true);
+  });
 }
 
 function init() {
   const $city = document.getElementById("city")
   const $btn = document.getElementById("done-btn")
+  const $clearBtn = document.getElementById("clear-btn")
 
-  if(localStorage.getItem('city')) {
+  function setSity(cityStr){
     const $doneInput = document.getElementById("done-input");
-    let city = localStorage.getItem("city");
-    $doneInput.innerHTML = `Ваш город — ${city}`
+    $doneInput.innerHTML = `Ваш город — ${cityStr}`
+    $city.classList.add("hide")
   }
 
-  $city.addEventListener("input", (e) => {
-    localStorage.setItem("city", e.target.value)
-  });
+  for(let i=0; i<localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key == "city"){
+      setSity(localStorage.getItem(key))
+    }else{
+      let $check = document.getElementsByName(key)[0]
+      $check.checked = (localStorage[key] == 'true');
+    }
+    }
 
-   $btn.addEventListener("click", () => {
-    checToLS()
-  });
+    $city.addEventListener("input", (e) => {
+      localStorage.setItem("city", e.target.value);
+    });
+
+    $city.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        setSity(localStorage.getItem("city"))
+      }
+    });
+
+    $btn.addEventListener("click", () => {
+      checToLS()
+    });
+
+    $clearBtn.addEventListener("click", () => {
+     clearLS()
+    });
 }
+
 document.addEventListener("DOMContentLoaded", function(event) {
   init()
 

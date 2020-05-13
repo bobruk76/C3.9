@@ -1,7 +1,5 @@
 
 body{
-  display: grid;
-  grid-template-rows: 10vh 50vh 10vh;
   background:  rgba(180, 178, 178, 0.274);
 }
 
@@ -17,30 +15,25 @@ label, p{
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(3 auto);
   grid-gap: 1.5rem;
 }
 
 .grid-wrapper>div{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, auto);
+  border: 1px solid royalblue;
 }
 
 .grid-wrapper>.form{
   display: grid;
-  grid-template-columns: repeat(2fr 2fr 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: repeat(6, auto);
 }
 
 .grid-wrapper>.form>label{
-  grid-column: 1 / 3;
-  align-self: center;
-  justify-self: end;
-}
-
-.grid-wrapper>.form>input{
-  justify-self: start;
+  grid-column: 2 / 4;
 }
 
 input{
