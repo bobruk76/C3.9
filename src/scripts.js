@@ -2,7 +2,9 @@ const $checkList = document.querySelectorAll('input[type=checkbox]')
 
 function checToLS(){
   $checkList.forEach(element => {
-    localStorage.setItem(element.value,element.checked)
+    localStorage.setItem(element.value,element.checked);
+    element.setAttribute("readonly","readonly");
+
   });
 }
 
@@ -31,6 +33,7 @@ function init() {
     }else{
       let $check = document.getElementsByName(key)[0]
       $check.checked = (localStorage[key] == 'true');
+      $check.setAttribute("readonly","readonly");
     }
     }
 

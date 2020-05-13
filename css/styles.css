@@ -40,6 +40,10 @@ input{
   font-size: 2rem;
 }
 
+input[type="checkbox"][readonly] {
+  pointer-events: none;
+}
+
 .action-btn{
   grid-column: 1 / 4;
   background-color: rebeccapurple;
